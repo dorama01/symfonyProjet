@@ -8,14 +8,14 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class IndexController extends AbstractController
 {
-    #[Route('/index', name: 'app_index')]
+    #[Route(path: '/index', name: 'app_index')]
     public function index(): Response
     {
         return new Response(content:"Hello world!");
     }
-    #[Route('/about', name: 'app_about')]
-    public function about():Response
+    #[Route(path: '/about/{nom}', name: 'app_about',requirements:['nom'=>'\d+'])]
+    public function about(string $nom="Anonyme"):Response
     {
-        return new Response(content:"Hello douae");
+        return new Response(content:"Hello ".$nom);
     }
 }
