@@ -3,9 +3,14 @@
 {% block title %}Hello TemplateController!{% endblock %}
 {% block stylesheets %}
     {{parent()}}
+    <style>
+        h1{
+            color:red;
+        }
+    </style>
 {% endblock %}
 {% block body %}
-
+{{ include('partials/_navbar.html.twig') }} 
 
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
